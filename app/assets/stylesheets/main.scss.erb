@@ -21,30 +21,30 @@ body {
 
 #flip #front {
   animation: wrapperfront 3s ease;
-  transform: rotateX(0deg) !important;
+  transform: rotateX(0deg) translateZ(0px);
 }
 
 #flip #back {
   animation: wrapperback 3s ease;
-  transform: rotateX(180deg) scaleY(-1) translateY(0px);
+  transform: rotateX(180deg) scaleY(-1) translateY(0px) translateZ(0px);
 }
 
 @keyframes wrapperfront {
   50% {
-    transform: rotateX(135deg) translateY(50px);
+    transform: rotateX(135deg) translateY(50px) translateZ(-100px);
   }
   100% {
-    transform:rotateX(180deg) translateY(-350px);
+    transform:rotateX(180deg) translateY(-350px) translateZ(0px);
   }
 }
 
 @keyframes wrapperback {
   50% {
-    transform: rotateX(315deg) scaleY(-1) translateY(50px);
+    transform: rotateX(315deg) scaleY(-1) translateY(50px) translateZ(100px);
     transform-origin: 0 0 0;
   }
   100% {
-    transform: rotateX(360deg) scaleY(-1) translateY(-350px);
+    transform: rotateX(360deg) scaleY(-1) translateY(-350px) translateZ(0px);
     transform-origin: 0 0 0;
   }
 }
@@ -60,33 +60,77 @@ body {
   background-size: 253px 350px;
 }
 
-
 #flip #front,
 #flip #front div {
   background-image: url(<%= asset_path("karelback_blue") %>);
-
+  background-repeat: no-repeat;
 }
 
 #flip #back,
 #flip #back div {
   background-image: url(<%= asset_path("test.png") %>);
+  background-repeat: no-repeat;
 }
 
-#flip div { background-position-y: 0; }
-#flip div > div { background-position-y: -31.8px; }
-#flip div > div > div { background-position-y : -63.6px; }
-#flip div > div > div > div { background-position-y : -95.5px; }
-#flip div > div > div > div > div { background-position-y : -127.3px; }
-#flip div > div > div > div > div > div { background-position-y : -159.1px; }
-#flip div > div > div > div > div > div > div { background-position-y : -190.9px; }
-#flip div > div > div > div > div > div > div > div  { background-position-y : -222.7px; }
-#flip div > div > div > div > div > div > div > div > div { background-position-y : -254.5px; }
-#flip div > div > div > div > div > div > div > div > div > div { background-position-y : -286.4px; }
-#flip div > div > div > div > div > div > div > div > div > div > div { background-position-y : -318.2px; }
+#flip div {
+  background-position: 0px 0px;
+}
+
+#flip > div {
+  border-top-left-radius:7px;
+  border-top-right-radius:7px;
+}
+
+#flip div > div {
+  background-position: 0px -31.8px;
+}
+
+#flip div > div > div {
+  background-position : 0px -63.6px;
+}
+
+#flip div > div > div > div {
+  background-position : 0px -95.5px;
+}
+
+#flip div > div > div > div > div {
+  background-position : 0px -127.3px;
+}
+
+#flip div > div > div > div > div > div {
+  background-position : 0px -159.1px;
+}
+
+#flip div > div > div > div > div > div > div {
+  background-position : 0px -190.9px;
+}
+
+#flip div > div > div > div > div > div > div > div  {
+  background-position : 0px -222.7px;
+}
+
+#flip div > div > div > div > div > div > div > div > div {
+  background-position : 0px -254.5px;
+}
+
+#flip div > div > div > div > div > div > div > div > div > div {
+  background-position : 0px -286.4px;
+}
+
+#flip div > div > div > div > div > div > div > div > div > div > div {
+  background-position : 0px -318.2px;
+  border-bottom-left-radius:7px;
+  border-bottom-right-radius:7px;
+}
 /* the more pieces you have, the smoother the bend is */
 
-#flip #front div { animation: pagefront 3s ease-in-out; }
-#flip #back div { animation: pageback 3s ease-in-out; }
+#flip #front div {
+  animation: pagefront 3s ease-in-out;
+}
+
+#flip #back div {
+  animation: pageback 3s ease-in-out;
+}
 
 @keyframes pagefront {
   10% { transform: rotateX(6deg); }
@@ -97,7 +141,6 @@ body {
   10% { transform: rotateX(-6deg); }
   75% { transform: rotateX(2deg); }
 }
-
 
 h4 {
   position: absolute;
